@@ -16,7 +16,7 @@
   "find_selected_text": true,
   "highlight_modified_tabs": true,
   "bold_folder_labels": true,
-  "open_files_in_new_window": true,
+  "open_files_in_new_window": false,
   "ignored_packages":
   [
   "Vintage"
