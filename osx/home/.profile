@@ -5,6 +5,9 @@ PATH=$PATH:~/Documents/sdk/platform-tools/
 export PATH=/Users/marcelkornblum/bin/Sencha/Cmd/3.1.1.274:$PATH
 export SENCHA_CMD_3_0_0="/Users/marcelkornblum/bin/Sencha/Cmd/3.1.1.274"
 
+# Git auto-complete
+source ~/.git-completion.bash
+
 # Custom commands
 source ~/.bash-builtins.sh
 
