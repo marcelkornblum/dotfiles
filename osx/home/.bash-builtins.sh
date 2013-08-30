@@ -2,3 +2,4 @@
 
 function ll() { ls -la "$@"; }
 function cd() { builtin cd "$@" && ls; }
+function ..() { cd ..; }
