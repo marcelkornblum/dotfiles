@@ -4,4 +4,6 @@ function ll() { ls -la "$@"; }
 function cd() { builtin cd "$@" && ls; }
 function ..() { cd ..; }
 alias gs="git status"
+alias gu="git pull"
 alias gc="git commit -am"
+alias gp="git push"
