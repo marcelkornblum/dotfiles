@@ -7,7 +7,7 @@ alias gs="git status"
 alias gu="git pull"
 alias gc="git commit -am"
 alias gp="git push"
-alias ga="git add ."
+alias ga="git add --all ."
 alias gf="git flow"
 syspip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
