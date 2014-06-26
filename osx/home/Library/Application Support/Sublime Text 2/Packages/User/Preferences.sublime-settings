@@ -1,11 +1,11 @@
 {
 	"auto_complete_commit_on_tab": true,
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/Dayle Rees Color Schemes/TronLegacy.tmTheme",
+	"color_scheme": "Packages/Dayle Rees Color Schemes/sublime/tron.tmTheme",
 	"dictionary": "Packages/Language - English/en_GB.dic",
 	"find_selected_text": true,
 	"font_face": "Source Code Pro",
-	"font_size": 13.0,
+	"font_size": 12.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -21,5 +21,9 @@
 	"tab_size": 4,
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
-	"word_wrap": true
+	"word_wrap": true,
+    "caret_style": "phase",
+    "line_padding_bottom": 1,
+    "line_padding_top": 1,
+    "fade_fold_buttons": false
 }
