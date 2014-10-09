@@ -14,6 +14,9 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.1.1
 export PATH=$PATH:$EC2_HOME/bin 
 
+# Git
+export PATH=/usr/local/git/bin:$PATH
+
 # Git auto-complete
 source ~/.git-completion.bash
 
