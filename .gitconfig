@@ -19,3 +19,6 @@
 
 [core]
     editor = subl -n -w
+[user]
+	name = marcelkornblum
+	email = me@marcelkornblum.com

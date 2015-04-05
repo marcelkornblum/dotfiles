@@ -57,3 +57,6 @@ source ~/.aliases
 # Venv and Pip setup
 source ~/.pyconfig
 
+# personalised commands that don't go into the repo
+source ~/.extra
+
