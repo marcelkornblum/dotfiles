@@ -1,0 +1,31 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AngularJS",
+		"ColorSchemeEditor",
+		"Cucumber",
+		"DashDoc",
+		"Dayle Rees Color Schemes",
+		"Djaneiro",
+		"Django Click",
+		"EditorConfig",
+		"Expand Tabs on Save",
+		"Git",
+		"GitGutter",
+		"JSLint",
+		"LESS",
+		"Markdown Preview",
+		"Package Control",
+		"Python PEP8 Autoformat",
+		"SCSS",
+		"SideBarEnhancements",
+		"Solarized Color Scheme",
+		"Solarized Toggle",
+		"Sublime Bookmarks",
+		"SublimeREPL",
+		"Sublimerge Pro"
+	]
+}
