@@ -8,6 +8,7 @@ syspip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
+# from http://unix.stackexchange.com/questions/4219/how-do-i-get-bash-completion-for-command-aliases
 function make-completion-wrapper () {
   local function_name="$2"
   local arg_count=$(($#-3))
