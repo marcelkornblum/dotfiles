@@ -54,9 +54,11 @@ source ~/.aliases
 # CLI utilities
 #source ~/.utils
 
+# completions for all those aliases
+source ~/.alias-completion.sh
+
 # Venv and Pip setup
 source ~/.pyconfig
 
 # personalised commands that don't go into the repo
 source ~/.extra
-
