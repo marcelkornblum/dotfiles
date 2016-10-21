@@ -15,3 +15,4 @@ Still to come
 * Script to configure sublime settings on OS X
 * Settings for iTerm on OS X
 * Settings for Terminator on Linux
+

@@ -22,3 +22,7 @@
 [user]
 	name = marcelkornblum
 	email = me@marcelkornblum.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true

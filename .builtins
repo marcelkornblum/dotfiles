@@ -25,3 +25,7 @@ function make-completion-wrapper () {
   echo $function_name
   echo "$function"
 }
+
+function homestead() {
+    ( cd ~/Homestead && vagrant $* )
+}
