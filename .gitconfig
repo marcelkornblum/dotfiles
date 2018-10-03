@@ -1,27 +1,13 @@
 [push]
     default = upstream
 
-[merge]
-    tool = sublimerge
-
-[mergetool "sublimerge"]
-    cmd = subl -n --wait \"$REMOTE\" \"$BASE\" \"$LOCAL\" \"$MERGED\" --command \"sublimerge_diff_views\"
-    trustExitCode = false
-
-[diff]
-    tool = sublimerge
-
-[difftool "sublimerge"]
-    cmd = subl -n --wait \"$REMOTE\" \"$LOCAL\" --command \"sublimerge_diff_views {\\\"left_read_only\\\": true, \\\"right_read_only\\\": true}\"
-
 [init]
     templatedir = ~/.git_template
 
-[core]
-    editor = subl -n -w
 [user]
-	name = marcelkornblum
-	email = me@marcelkornblum.com
+	name = "Marcel Kornblum"
+	email = marcel@signal-noise.co.uk
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

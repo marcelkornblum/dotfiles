@@ -1,36 +1,50 @@
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists    
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 #
 # PATHS
 #
 
-# Custom /bin
-# :add binaries here for ngrok, subl
-export PATH=$HOME/bin:$PATH
-
 # git
-export PATH=/usr/local/git/bin:$PATH
+#export PATH=/usr/local/git/bin:$PATH
 
 # XCode
-export PATH=$PATH:~/Documents/sdk/platform-tools
+#export PATH=$PATH:~/Documents/sdk/platform-tools
 
 # Postgres
-export PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin/:$PATH
+#export PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin/:$PATH
 
 # MySQL
-export PATH=$PATH:/usr/local/mysql/bin
+#export PATH=$PATH:/usr/local/mysql/bin
 
 # Java
-export JAVA_HOME=$(/usr/libexec/java_home)
+#export JAVA_HOME=$(/usr/libexec/java_home)
 
 # RVM
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+#export PATH="$PATH:$HOME/.rvm/bin"
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+#export PATH="/usr/local/heroku/bin:$PATH"
 
 # AWS EC2
-export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.1.1
-export PATH=$PATH:$EC2_HOME/bin
+#export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.1.1
+#export PATH=$PATH:$EC2_HOME/bin
 
 #
 # CUSTOM SETUP
@@ -58,10 +72,10 @@ source ~/.aliases
 source ~/.alias-completion.sh
 
 # Venv and Pip setup
-source ~/.pyconfig
+# source ~/.pyconfig
 
 # personalised commands that don't go into the repo
-source ~/.extra
+# source ~/.extra
 
 
 
