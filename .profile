@@ -97,3 +97,6 @@ else
   # @2 - Prompt when not in GIT repo
   echo "'$Yellow$PathFull$Color_Off'\$ ";
 fi)'
+
+
+ssha
