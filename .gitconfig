@@ -2,23 +2,23 @@
     default = upstream
 
 [merge]
-    tool = sublimerge
+    tool = default-difftool
 
-[mergetool "sublimerge"]
-    cmd = subl -n --wait \"$REMOTE\" \"$BASE\" \"$LOCAL\" \"$MERGED\" --command \"sublimerge_diff_views\"
-    trustExitCode = false
+[mergetool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 
 [diff]
-    tool = sublimerge
+    tool = default-difftool
 
-[difftool "sublimerge"]
-    cmd = subl -n --wait \"$REMOTE\" \"$LOCAL\" --command \"sublimerge_diff_views {\\\"left_read_only\\\": true, \\\"right_read_only\\\": true}\"
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 
 [init]
     templatedir = ~/.git_template
 
 [core]
-    editor = subl -n -w
+	editor = code --wait
+	autocrlf = input
 [user]
 	name = marcelkornblum
 	email = me@marcelkornblum.com

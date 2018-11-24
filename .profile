@@ -13,7 +13,7 @@ export PATH=/usr/local/git/bin:$PATH
 export PATH=$PATH:~/Documents/sdk/platform-tools
 
 # Postgres
-export PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin/:$PATH
+export PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH
 
 # MySQL
 export PATH=$PATH:/usr/local/mysql/bin
