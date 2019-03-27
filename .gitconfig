@@ -22,3 +22,5 @@
 [user]
 	name = marcelkornblum
 	email = me@marcelkornblum.com
+[credential]
+	helper = cache --timeout=3600
