@@ -10,3 +10,9 @@ Clone this into a subfolder of your $HOME, create a CONFIG file inside it (use t
 and then `cd bin` and `./create-symlinks` which will make symlinks in you $HOME of the files in
 this repo, being careful not to overwrite anything (thanks
 [sitakif](https://github.com/sitaktif/dotfiles)!).
+
+Still to come
+* Script to configure sublime settings on OS X
+* Settings for iTerm on OS X
+* Settings for Terminator on Linux
+

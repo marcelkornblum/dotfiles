@@ -2,6 +2,8 @@
 
 function cd() { builtin cd "$@" && ls; }
 
+function ssha() { eval `ssh-agent` && ssh-add "$@"; }
+
 syspip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
@@ -23,3 +25,4 @@ function make-completion-wrapper () {
   echo $function_name
   echo "$function"
 }
+
