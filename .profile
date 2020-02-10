@@ -89,15 +89,19 @@ source ~/.alias-completion.sh
 
 
 # Set up command prompt
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWUPSTREAM="auto"
 export PS1='$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1;
   if [ "$?" -eq "0" ]; then
     # @4 - Clean repository - nothing to commit
-    echo "'$Green'"$(__gitrepo) "("$(__git_ps1 "%s)")'$Color_Off';
+    echo "'$Blue'"$(__gitrepo) "'$Green'["$(__git_ps1 "%s]") "'$Yellow'/"$(git rev-parse --show-prefix)"'$NewLine'"'$Color_Off';
   else
     # @5 - Changes to working tree
-    echo "'$Red'"$(__gitrepo) "{"$(__git_ps1 "%s}")'$Color_Off';
+    echo "'$Blue'"$(__gitrepo) "'$Red'["$(__git_ps1 "%s]") "'$Yellow'/"$(git rev-parse --show-prefix)"'$NewLine'"'$Color_Off';
   fi)\$ ";
 else
   # @2 - Prompt when not in GIT repo
