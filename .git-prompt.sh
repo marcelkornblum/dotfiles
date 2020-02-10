@@ -556,8 +556,8 @@ On_IWhite="\[\033[0;107m\]"   # White
 # Various variables you might want for your PS1 prompt instead
 Time12h="\T"
 Time12a="\@"
-PathFull="\w"
-PathShort="\W"
+PathFull="[\w]"
+PathShort="[\W]"
 NewLine="\n"
 Jobs="\j"
 Username="\u"
