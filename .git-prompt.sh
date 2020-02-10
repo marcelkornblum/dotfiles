@@ -447,19 +447,19 @@ __git_ps1 ()
 		fi
 
 		local z="${GIT_PS1_STATESEPARATOR-" "}"
-		local f="$w$i$s$u"
+		local f="[$w$i$s$u$r$p]"
 		if [ $pcmode = yes ]; then
 			local gitstring=
 			if [ -n "${GIT_PS1_SHOWCOLORHINTS-}" ]; then
 				__git_ps1_colorize_gitstring
 			else
-				gitstring="$c${b##refs/heads/}${f:+$z$f}$r$p"
+				gitstring="$c${b##refs/heads/}${f:+$z$f}"
 			fi
 			gitstring=$(printf -- "$printf_format" "$gitstring")
 			PS1="$ps1pc_start$gitstring$ps1pc_end"
 		else
 			# NO color option unless in PROMPT_COMMAND mode
-			printf -- "$printf_format" "$c${b##refs/heads/}${f:+$z$f}$r$p"
+			printf -- "$printf_format" "$c${b##refs/heads/}${f:+$z$f}"
 		fi
 	fi
 }

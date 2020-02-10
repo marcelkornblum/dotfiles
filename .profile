@@ -98,14 +98,14 @@ if [ $? -eq 0 ]; then
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1;
   if [ "$?" -eq "0" ]; then
     # @4 - Clean repository - nothing to commit
-    echo "'$Blue'"$(__gitrepo) "'$Green'["$(__git_ps1 "%s]") "'$Yellow'/"$(git rev-parse --show-prefix)"'$NewLine'"'$Color_Off';
+    echo "🍐 '$Blue'"$(__gitrepo) "'$Green'"$(__git_ps1 "%s") "'$Yellow'/"$(git rev-parse --show-prefix)"'$NewLine'"'$Color_Off';
   else
     # @5 - Changes to working tree
-    echo "'$Blue'"$(__gitrepo) "'$Red'["$(__git_ps1 "%s]") "'$Yellow'/"$(git rev-parse --show-prefix)"'$NewLine'"'$Color_Off';
-  fi)\$ ";
+    echo "🍎 '$Blue'"$(__gitrepo) "'$Red'"$(__git_ps1 "%s") "'$Yellow'/"$(git rev-parse --show-prefix)"'$NewLine'"'$Color_Off';
+  fi)> ";
 else
   # @2 - Prompt when not in GIT repo
-  echo "'$Yellow$PathFull$Color_Off'\$ ";
+  echo "🍋 '$Yellow$PathFull$Color_Off'> ";
 fi)'
 
 
