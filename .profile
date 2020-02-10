@@ -88,12 +88,6 @@ source ~/.alias-completion.sh
 # source ~/.extra
 
 
-export DOCKER_HOST=tcp://localhost:2375
-#sudo mount --bind /mnt/c /c
-
-complete -C /home/marcel/bin/vault vault
-
-
 # Set up command prompt
 export PS1='$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then
