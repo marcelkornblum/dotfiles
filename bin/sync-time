@@ -1,0 +1,4 @@
+#!/bin/bash
+# Syncs the WSL clock with the machine clock - they get out of sync after suspension
+
+sudo hwclock -s
