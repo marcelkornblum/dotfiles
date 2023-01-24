@@ -22,6 +22,7 @@
 [user]
 	name = marcelkornblum
 	email = me@marcelkornblum.com
+	signingkey = /Users/marcelkornblum/.ssh/id_rsa.pub
 [credential]
 	helper = store
 
@@ -30,3 +31,9 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /Users/marcelkornblum/.ssh/allowed_signers

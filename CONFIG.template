@@ -19,11 +19,11 @@ cfg_ignore=("CONFIG" "CONFIG.example" "README.md" "bin" "todo"   # This repo
 cfg_first_child=(".config")
 
 # Destination: home directory
-cfg_dest_dir=/home/sitaktif
+cfg_dest_dir=/home/marcel
 
 # Relative path: if not set, use absolute path, otherwise, trust the user that
 # the dotfiles directory is located at the given value relative to
 # cfg_dest_dir.
 # E.g: If cfg_dest_dir is /home/foo and the dotfiles directory is in
 # /home/foo/git/dotfiles, then you should put "git/dotfiles" in there.
-cfg_dotfiles_relative_path="git/dotfiles"
+cfg_dotfiles_relative_path="projects/dotfiles"
