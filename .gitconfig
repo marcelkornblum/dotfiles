@@ -17,11 +17,12 @@
     templatedir = ~/.git_template
 
 [core]
-	editor = code --wait
+	editor = vi
 	autocrlf = input
 [user]
 	name = marcelkornblum
 	email = me@marcelkornblum.com
+	signingkey = /home/marcel/.ssh/id_rsa.pub
 [credential]
 	helper = store
 
@@ -30,3 +31,12 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
+[commit]
+	gpgsign = true
+[gpg "ssh"]
+	allowedSignersFile = /home/marcel/.ssh/allowed_signers
+[gpg]
+	format = ssh
+[safe]
+	directory = /app
+	directory = /app

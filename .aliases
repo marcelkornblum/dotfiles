@@ -62,3 +62,5 @@ alias kgp='kubectl get pods'
 alias kl='kubectl logs'
 alias klf='kubectl logs -f'
 alias ks='kubectl scale --replicas'
+
+alias docker-compose='docker compose'

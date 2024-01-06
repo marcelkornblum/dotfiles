@@ -1,6 +1,6 @@
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists    
+    # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
         . "$HOME/.bashrc"
     fi
@@ -44,6 +44,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
 # Heroku Toolbelt
 #export PATH="/usr/local/heroku/bin:$PATH"
 
@@ -77,7 +78,7 @@ source ~/.aliases
 source ~/.alias-completion.sh
 
 # Venv and Pip setup
-# source ~/.pyconfig
+source ~/.pyconfig
 
 # personalised commands that don't go into the repo
 # source ~/.extra
