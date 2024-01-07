@@ -32,10 +32,12 @@
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
-    os_icon                 # os identifier
-    dir                     # current directory
+    # emoji                   # random emoji
+    # os_icon                 # os identifier
+    gitrepo                 # git repo name
+    # dir                     # current directory
     vcs                     # git status
-    gitrepo             # git repo name
+    gitdir                 # git-based dir
     # =========================[ Line #2 ]=========================
     newline                 # \n
     # prompt_char           # prompt symbol
@@ -107,7 +109,7 @@
     # taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
     # per_directory_history   # Oh My Zsh per-directory-history local/global indicator
     # cpu_arch              # CPU architecture
-    time                    # current time
+    # time                    # current time
     # =========================[ Line #2 ]=========================
     newline
     # ip                    # ip address and bandwidth usage for a specified network interface
@@ -226,9 +228,14 @@
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=254
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
+  # if [[ -n $VCS_STATUS_LOCAL_BRANCH ]]; then
+  #   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
+  # else
+  #   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
+  # fi
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
   # Replace removed segment suffixes with this symbol.
-  typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
+  typeset -g POWERLEVEL9K_SHORTEN_DELIMITER="*"
   # Color of the shortened directory segments.
   typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=250
   # Color of the anchor directory segments. Anchor segments are never shortened. The first
@@ -321,34 +328,33 @@
   #     '~(|/*)'       HOME     ''
   #     '*'            DEFAULT  '')
   #
+  typeset -g POWERLEVEL9K_DIR_CLASSES=(
+    '~/projects(|/*)'  WORK     ''
+    '~(|/*)'           HOME     ''
+    '*'                DEFAULT  '')
+  #
   # Whenever the current directory is ~/work or a subdirectory of ~/work, it gets styled with one
   # of the following classes depending on its writability and existence: WORK, WORK_NOT_WRITABLE or
   # WORK_NON_EXISTENT.
   #
   # Simply assigning classes to directories doesn't have any visible effects. It merely gives you an
   # option to define custom colors and icons for different directory classes.
-  #
-  #   # Styling for WORK.
-  #   typeset -g POWERLEVEL9K_DIR_WORK_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  #   typeset -g POWERLEVEL9K_DIR_WORK_BACKGROUND=4
-  #   typeset -g POWERLEVEL9K_DIR_WORK_FOREGROUND=254
-  #   typeset -g POWERLEVEL9K_DIR_WORK_SHORTENED_FOREGROUND=250
-  #   typeset -g POWERLEVEL9K_DIR_WORK_ANCHOR_FOREGROUND=255
-  #
-  #   # Styling for WORK_NOT_WRITABLE.
-  #   typeset -g POWERLEVEL9K_DIR_WORK_NOT_WRITABLE_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  #   typeset -g POWERLEVEL9K_DIR_WORK_NOT_WRITABLE_BACKGROUND=4
-  #   typeset -g POWERLEVEL9K_DIR_WORK_NOT_WRITABLE_FOREGROUND=254
-  #   typeset -g POWERLEVEL9K_DIR_WORK_NOT_WRITABLE_SHORTENED_FOREGROUND=250
-  #   typeset -g POWERLEVEL9K_DIR_WORK_NOT_WRITABLE_ANCHOR_FOREGROUND=255
-  #
-  #   # Styling for WORK_NON_EXISTENT.
-  #   typeset -g POWERLEVEL9K_DIR_WORK_NON_EXISTENT_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  #   typeset -g POWERLEVEL9K_DIR_WORK_NON_EXISTENT_BACKGROUND=4
-  #   typeset -g POWERLEVEL9K_DIR_WORK_NON_EXISTENT_FOREGROUND=254
-  #   typeset -g POWERLEVEL9K_DIR_WORK_NON_EXISTENT_SHORTENED_FOREGROUND=250
-  #   typeset -g POWERLEVEL9K_DIR_WORK_NON_EXISTENT_ANCHOR_FOREGROUND=255
-  #
+
+  # Styling for DIR patterns.
+  typeset -g POWERLEVEL9K_DIR_WORK_VISUAL_IDENTIFIER_EXPANSION='💻'
+  typeset -g POWERLEVEL9K_DIR_HOME_VISUAL_IDENTIFIER_EXPANSION='🏠'
+  typeset -g POWERLEVEL9K_DIR_NOT_WRITABLE_VISUAL_IDENTIFIER_EXPANSION='🔏'
+  typeset -g POWERLEVEL9K_DIR_WORK_NOT_WRITABLE_BACKGROUND=39
+  typeset -g POWERLEVEL9K_DIR_HOME_NOT_WRITABLE_BACKGROUND=39
+  typeset -g POWERLEVEL9K_DIR_DEFAULT_NOT_WRITABLE_BACKGROUND=39
+  typeset -g POWERLEVEL9K_DIR_NOT_WRITABLE_FOREGROUND=000
+  typeset -g POWERLEVEL9K_DIR_NOT_WRITABLE_SHORTENED_FOREGROUND=236
+  typeset -g POWERLEVEL9K_DIR_NOT_WRITABLE_ANCHOR_FOREGROUND=000
+  typeset -g POWERLEVEL9K_DIR_NON_EXISTENT_VISUAL_IDENTIFIER_EXPANSION='‼️'
+  typeset -g POWERLEVEL9K_DIR_WORK_NON_EXISTENT_BACKGROUND=2
+  typeset -g POWERLEVEL9K_DIR_HOME_NON_EXISTENT_BACKGROUND=2
+  typeset -g POWERLEVEL9K_DIR_DEFAULT_NON_EXISTENT_BACKGROUND=2
+
   # If a styling parameter isn't explicitly defined for some class, it falls back to the classless
   # parameter. For example, if POWERLEVEL9K_DIR_WORK_NOT_WRITABLE_FOREGROUND is not set, it falls
   # back to POWERLEVEL9K_DIR_FOREGROUND.
@@ -575,11 +581,9 @@
   # typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   #######################[ direnv: direnv status (https://direnv.net/) ]########################
-  # Direnv color.
   typeset -g POWERLEVEL9K_DIRENV_FOREGROUND=3
   typeset -g POWERLEVEL9K_DIRENV_BACKGROUND=0
-  # Custom icon.
-  # typeset -g POWERLEVEL9K_DIRENV_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_DIRENV_VISUAL_IDENTIFIER_EXPANSION='📂'
 
   ###############[ asdf: asdf version manager (https://github.com/asdf-vm/asdf) ]###############
   # Default asdf color. Only used to display tools for which there is no color override (see below).
@@ -628,7 +632,7 @@
   #
   # Note: If this parameter is set to true, it won't hide tools.
   # Tip: Override this parameter for ${TOOL} with POWERLEVEL9K_ASDF_${TOOL}_SHOW_SYSTEM.
-  typeset -g POWERLEVEL9K_ASDF_SHOW_SYSTEM=true
+  typeset -g POWERLEVEL9K_ASDF_SHOW_SYSTEM=false
 
   # If set to non-empty value, hide tools unless there is a file matching the specified file pattern
   # in the current directory, or its parent directory, or its grandparent directory, and so on.
@@ -650,8 +654,8 @@
   # typeset -g POWERLEVEL9K_ASDF_RUBY_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Python version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_PYTHON_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_PYTHON_BACKGROUND=4
+  typeset -g POWERLEVEL9K_ASDF_PYTHON_FOREGROUND=11
+  typeset -g POWERLEVEL9K_ASDF_PYTHON_BACKGROUND=27
   # typeset -g POWERLEVEL9K_ASDF_PYTHON_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_PYTHON_SHOW_ON_UPGLOB='*.foo|*.bar'
 
@@ -1750,7 +1754,7 @@
   typeset -g POWERLEVEL9K_TIME_FOREGROUND=0
   typeset -g POWERLEVEL9K_TIME_BACKGROUND=7
   # Format for the current time: 09:51:02. See `man 3 strftime`.
-  typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
+  typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M}'
   # If set to true, time will update when you hit enter. This way prompts for the past
   # commands will contain the start times of their commands as opposed to the default
   # behavior where they contain the end times of their preceding commands.
@@ -1800,13 +1804,46 @@
   #
   # VCS_STATUS_* parameters are set by gitstatus plugin. See reference:
   # https://github.com/romkatv/gitstatus/blob/master/gitstatus.plugin.zsh.
-  function prompt_gitrepo() {
-    emulate -L zsh
 
-    p10k segment -b 1 -f 3 -i '⭐' -t "${VCS_STATUS_LOCAL_BRANCH}"
+  function prompt_gitrepo() {
+    git check-ignore . >/dev/null 2>&1
+    if
+      [ "$?" -ne "1" ]
+    then
+      # we're not in a repo, show nothing
+    else
+      reponame="$(basename -s .git `git config --get remote.origin.url`)"
+      p10k segment -t "${reponame}"
+    fi
   }
-  typeset -g POWERLEVEL9K_GITREPO_FOREGROUND=4
-  typeset -g POWERLEVEL9K_GITREPO_BACKGROUND=2
+  typeset -g POWERLEVEL9K_GITREPO_FOREGROUND=7
+  typeset -g POWERLEVEL9K_GITREPO_BACKGROUND=57
+
+  function prompt_gitdir() {
+    git check-ignore . >/dev/null 2>&1
+    if
+      [ "$?" -ne "1" ]
+    then
+      prompt_dir
+    else
+      reporoot=$( git rev-parse --show-toplevel )
+      currdir=$( pwd )
+      reldir=${currdir#$reporoot}
+      p10k segment -t "${reldir:1}/"
+    fi
+  }
+  typeset -g POWERLEVEL9K_GITDIR_FOREGROUND=7
+  typeset -g POWERLEVEL9K_GITDIR_BACKGROUND=4
+
+  function prompt_emoji() {
+    # declares an array with the emojis we want to support
+    EMOJIS=(😺 😸 😹 😻 😼 😽 🙀 😿 😾)
+
+    # selects a random element from the EMOJIS set
+    SELECTED_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]};
+
+    p10k segment -b 7 -i "${SELECTED_EMOJI}"
+  }
 
   # Transient prompt works similarly to the builtin transient_rprompt option. It trims down prompt
   # when accepting a command line. Supported values:

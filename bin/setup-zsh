@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# For UBUNTU 22.04
+# ensure symlinks already created
+
+# install packages
+sudo apt update
+sudo apt upgrade
+sudo apt install -y zsh direnv exa
+
+# install fonts
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+sudo mv *.ttf /usr/local/share/fonts/
+fc-cache -f -v
+
+# switch to ZSH
+chsh -s $(which zsh)
+
+# setup ASDF
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+asdf plugin-add direnv
+asdf direnv setup --shell zsh --version system
+asdf plugin add python
+asdf plugin add nodejs
+
+# setup oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
