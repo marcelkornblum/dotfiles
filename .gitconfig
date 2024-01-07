@@ -22,7 +22,7 @@
 [user]
 	name = marcelkornblum
 	email = me@marcelkornblum.com
-	signingkey = /home/marcel/.ssh/id_ed25519.pub
+	signingkey = ~/.ssh/id_ed25519
 [credential]
 	helper = store
 
@@ -34,9 +34,8 @@
 [commit]
 	gpgsign = true
 [gpg "ssh"]
-	allowedSignersFile = /home/marcel/.ssh/allowed_signers
+	allowedSignersFile = ~/.ssh/allowed_signers
 [gpg]
 	format = ssh
 [safe]
-	directory = /app
 	directory = /app
