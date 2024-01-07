@@ -22,7 +22,7 @@
 [user]
 	name = marcelkornblum
 	email = me@marcelkornblum.com
-	signingkey = /home/marcel/.ssh/id_rsa.pub
+	signingkey = /home/marcel/.ssh/id_ed25519.pub
 [credential]
 	helper = store
 
