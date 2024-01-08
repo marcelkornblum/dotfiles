@@ -1,0 +1,7 @@
+chromium/*
+dconf/*
+gcloud/*
+ngrok/*
+pulse/*
+pypoetry/auth.toml
+wslu/*
