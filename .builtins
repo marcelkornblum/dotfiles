@@ -1,6 +1,6 @@
 # Some minor amends to make browsing easier
 
-function cd() { builtin cd "$@" && ls; }
+function cd() { builtin cd "$@" && echo "" && ls; }
 
 function ssha() { eval `ssh-agent` && ssh-add "$@"; }
 

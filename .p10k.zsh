@@ -1843,7 +1843,7 @@
       # no active VIRTUAL_ENV
     else
       version=$( python --version)
-      p10k segment -i "${version:7:4} "
+      p10k segment -i "${version:7} "
     fi
   }
   typeset -g POWERLEVEL9K_VENV_FOREGROUND=226
