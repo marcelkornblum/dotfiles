@@ -26,6 +26,14 @@ fi
 # XCode
 #export PATH=$PATH:~/Documents/sdk/platform-tools
 
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # Postgres
 #export PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin/:$PATH
 
@@ -108,3 +116,10 @@ fi)'
 
 # Added by Amplify CLI binary installer
 export PATH="$HOME/.amplify/bin:$PATH"
+
+
+JENKINS_USER_ID="marcelkornblum"
+JENKINS_API_TOKEN="1142e9aeb6b7672d232dbd3ec0719cee37"
+
+
+eval "$(direnv hook bash)"

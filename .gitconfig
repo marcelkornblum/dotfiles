@@ -20,8 +20,8 @@
 	editor = code --wait
 	autocrlf = input
 [user]
-	name = marcelkornblum
-	email = me@marcelkornblum.com
+	name = Marcel Kornblum
+	email = marcel.kornblum@digital.trade.gov.uk
 	signingkey = /Users/marcelkornblum/.ssh/id_rsa.pub
 [credential]
 	helper = store

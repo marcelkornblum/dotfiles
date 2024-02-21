@@ -10,3 +10,5 @@ if [ -f '/Users/marcel/projects/google-cloud-sdk/completion.bash.inc' ]; then so
 
 # Added by Amplify CLI binary installer
 export PATH="$HOME/.amplify/bin:$PATH"
+
+source /Users/marcelkornblum/.docker/init-bash.sh || true # Added by Docker Desktop
