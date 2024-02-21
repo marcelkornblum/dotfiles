@@ -118,8 +118,4 @@ fi)'
 export PATH="$HOME/.amplify/bin:$PATH"
 
 
-JENKINS_USER_ID="marcelkornblum"
-JENKINS_API_TOKEN="1142e9aeb6b7672d232dbd3ec0719cee37"
-
-
 eval "$(direnv hook bash)"
