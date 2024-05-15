@@ -6,8 +6,7 @@ sudo yum -y update && sudo yum -y install zsh util-linux-user
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
-wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
-sudo mv *.ttf /usr/local/share/fonts/
+sudo mv *.ttf /usr/share/fonts/
 fc-cache -f -v
 
 sudo chsh -s $(which zsh)
