@@ -1,12 +1,11 @@
 #!/bin/bash
-
-# For UBUNTU 22.04
+# For UBUNTU 24.04
 # ensure symlinks already created
 
 # install packages
 sudo apt update
 sudo apt upgrade
-sudo apt install -y zsh direnv exa
+sudo apt install -y zsh 
 
 # install fonts
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
@@ -19,16 +18,25 @@ fc-cache -f -v
 # switch to ZSH
 chsh -s $(which zsh)
 
-# setup ASDF
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
-asdf pluginadd direnv
-asdf direnv setup --shell zsh --version system
-asdf plugin add python
-asdf plugin add nodejs
-
 # setup oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+
+# setup ASDF
+wget https://github.com/asdf-vm/asdf/releases/download/v0.16.6/asdf-v0.16.6-linux-amd64.tar.gz
+tar -xvfz asdf-v0.16.6-linux-amd64.tar.gz
+mkdir -p ~/.asdf
+asdf plugin add direnv
+asdf install direnv latest
+asdf direnv setup --shell zsh --version latest
+asdf plugin add python
+sudo apt-get install make build-essential libssl-dev zlib1g-dev \
+    libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+    libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+asdf install python latest
+asdf plugin add nodejs
+asdf install nodejs latest
